@@ -1,0 +1,71 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type TesteRelacao {
+  id: Float!
+  nome: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Teste {
+  id: Float!
+  nome: String!
+  email: String!
+  testeRelacaoId: Float!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  testeRelacao: TesteRelacao!
+}
+
+type Query {
+  getTestes: [Teste!]!
+  getTeste(id: Float!): Teste
+  getTesteTesteRelacao(testeRelacaoId: Float!): [Teste!]!
+  getTestesRelacao: [TesteRelacao!]!
+  getTesteRelacao(id: Float!): TesteRelacao
+}
+
+type Mutation {
+  createTeste(data: TesteInput!): Teste!
+  updateTeste(data: TesteUpdateInput!): [Teste!]!
+  deleteTeste(data: TesteDeleteInput!): [Teste!]!
+  createTesteRelacao(data: TesteRelacaoInput!): TesteRelacao!
+  updateTesteRelacao(data: TesteRelacaoUpdateInput!): [TesteRelacao!]!
+  deleteTesteRelacao(data: TesteRelacaoDeleteInput!): [TesteRelacao!]!
+}
+
+input TesteInput {
+  nome: String!
+  email: String!
+  testeRelacaoId: Float!
+}
+
+input TesteUpdateInput {
+  id: Float!
+  nome: String!
+  testeRelacaoId: Float!
+}
+
+input TesteDeleteInput {
+  id: Float!
+}
+
+input TesteRelacaoInput {
+  nome: String!
+}
+
+input TesteRelacaoUpdateInput {
+  id: Float!
+  nome: String!
+}
+
+input TesteRelacaoDeleteInput {
+  id: Float!
+}
